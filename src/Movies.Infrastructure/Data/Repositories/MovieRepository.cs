@@ -24,7 +24,7 @@ namespace Movies.Infrastructure.Data.Repositories
         public async Task<IEnumerable<Movie>> GetByActorAsync(int actorId)
         {
             return await _db.MovieActors
-                .Where(ma => ma.ActorId.Equals(actorId))
+                .Where(ma => ma.ActorId == actorId)
                 .Join(_db.Movies,
                     ma => ma.MovieId,
                     m => m.Id,
